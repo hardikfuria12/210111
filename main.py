@@ -18,22 +18,28 @@ if platform == 'android':
     res = request_permissions(perms, None)
     Logger.info(f"    permissions requested {res} ...")
 
+import firebase_admin
+from firebase_admin import initialize_app, db, credentials
+
+CRED = credentials.Certificate("djwines-a4c3d-firebase-adminsdk-rqi2m-51f2fcc835.json")
+FIREBASE_URL = 'https://djwines-a4c3d-default-rtdb.asia-southeast1.firebasedatabase.app/.firebaseio.com/'
 MAIN_KV = "./templates/main.kv"
 
-from screens.attendance_screen import AttendanceScreen
+try:
+    firebase_admin.get_app()
+except ValueError:
+    firebase_app = initialize_app(CRED,{
+      'databaseURL': FIREBASE_URL
+    }
+)
+# from screens.attendance_screen import AttendanceScreen
+from screens.login_screen import LoginScreen
+# from screens.gps_screen import GPSScreen
 class HelloWorldApp(MDApp):
     # One user is the actor of an app
     # user_id attribute
 
     # ideal time cutoff period automatic logout
-
-    def validate_login(self, username, password, instance):
-        if username == "rlad" and password == "admin":
-            # JOURNEY BEGINS -- CUE IN ANIMATIONS
-            # assign user_id based on login information as an app atribute
-
-            sm = instance.manager
-            sm.current = "attendance_screen"
 
     def user_attendance(self):
         # navigate to attendance journey screen

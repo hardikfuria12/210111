@@ -1,38 +1,18 @@
 #:kivy 2.1.0
 #:include ./templates/attendance_screen.kv
+#:include ./templates/login_screen.kv
 
 MDScreenManager:
     id: screen_manager
-    MDScreen:
+    LoginScreen:
         id: login_screen
         name: "login_screen"
         manager: screen_manager
-        MDFloatLayout:
-            spacing: "15dp"
-            MDTextField:
-                id: username
-                hint_text: "Username"
-                size_hint: 0.5, None
-                pos_hint: {"x": 0.25, "y": 0.5}
-            MDTextField:
-                id: password
-                hint_text: "Password"
-                size_hint: 0.5, None
-                pos_hint: {"x": 0.25, "y": 0.4}
-            MDRaisedButton:
-                text: "Login"
-                size_hint: 0.3, None
-                pos_hint: {"x": 0.35, "y": 0.3}
-                on_release: app.validate_login(username.text,password.text,login_screen)
-    AttendanceScreen:
-        id: attendance_screen
-        manager: screen_manager
-        name: "attendance_screen"
-
-    # MDScreen:
-    #     MDFloatLayout:
-    #         spacing: "15dp"
-    #     MDRaisedButton:
-    #             text: "Attendance"
-    #             on_release: app.user_attendance()
-            
+    # GPSScreen:
+    #     id: gps_screen
+    #     name: "gps_screen"
+    #     manager: screen_manager
+    # AttendanceScreen:
+    #     id: attendance_screen
+    #     manager: screen_manager
+    #     name: "attendance_screen"
