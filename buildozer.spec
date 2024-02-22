@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3, kivy==2.1.0, kivymd==1.1.1, sdl2_ttf, pillow, firebase_admin
+requirements = python3, kivy==2.1.0, kivymd==1.1.1, sdl2_ttf, pillow, google-api-core, google-api-python-client, google-auth, google-auth-httplib2, google-cloud-core, google-cloud-firestore, google-cloud-storage, google-crc32c, google-resumable-media, googleapis-common-protos, pyasn1, pyasn1-modules, rsa, cachetools, firebase-admin
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -96,7 +96,7 @@ fullscreen = 1
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
 #android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
-android.permissions = android.permission.INTERNET, android.permission.ACCESS_NETWORK_STATE, android.permission.CAMERA,
+android.permissions = android.permission.INTERNET, android.permission.ACCESS_NETWORK_STATE, android.permission.CAMERA
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
